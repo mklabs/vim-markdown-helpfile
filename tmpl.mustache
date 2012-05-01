@@ -1,0 +1,17 @@
+*{{name}}.txt*	{{ desc }}
+
+{{#sections}}
+|{{ slug }}|		{{ id }}
+{{/sections}}
+
+{{#sections}}
+{{ title }}				*{{ slug }}*
+
+{{#parts}}
+{{{ body }}}
+
+{{/parts}}
+
+{{/sections}}
+
+vim:tw=78:ts=8:ft=help:norl:

@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+var HelpFile = require('../');
+
+var opts = require('nopt')();
+
+process.openStdin()
+  .pipe(new HelpFile(opts))
+  .pipe(process.stdout);
+
