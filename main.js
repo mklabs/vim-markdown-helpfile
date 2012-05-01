@@ -77,16 +77,18 @@ Tokens.prototype.init = function() {
 
 Tokens.prototype.heading = function(t) {
   t.text = t.text.trim();
+
   // set name if not def
-  this.data.name = this.data.name || t.text;
+  var name = this.data.name = this.data.name || t.text;
+
+  var id = name === t.text ? '' : '-' + t.text.trim().replace(/\s+/g, '-');
+  id = this.data.name.replace(/vim-?/, '') + id;
 
   // build a new section
   var s = this.data.sections;
   this.last = s[s.length] = {
     title: t.text,
-    // todo: very crude regexp helper, rework
-    slug: t.text.replace(/[^\w]+/g, ''),
-    id: t.text.replace(/\s*/g, ''),
+    id: id,
     parts: []
   };
 };
@@ -97,7 +99,12 @@ Tokens.prototype.text = function(t) {
 };
 
 Tokens.prototype.code = function(t) {
-  t.text = ['>', t.text.split('\n'), '<'].join('\n');
+  var code = t.text.trim().split('\n').map(function(l) {
+    if(!l) return l;
+    return '    ' + l;
+  });
+
+  t.text = ['>'].concat(code).concat('<').join('\n');
   this.last.parts.push({ body: t.text });
 };
 

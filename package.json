@@ -1,7 +1,7 @@
 {
   "author": "mklabs",
-  "name": "vim-markdown-helpfile",
-  "description": "Generate vim helpfile from markdown",
+  "name": "markdown-helpfile",
+  "description": "Simple script to generate vim helpfile from markdown",
   "version": "0.1.0",
   "repository": {
     "url": "git://github.com/mklabs/vim-markdown-helpfile"
