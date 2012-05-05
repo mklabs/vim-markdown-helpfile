@@ -16,5 +16,8 @@
   },
   "devDependencies": {},
   "main": "lib/main.js",
-  "bin": "bin/vim-helpfile"
+  "bin": {
+    "markdown-helpfile": "bin/vim-helpfile",
+    "mhf": "bin/vim-helpfile"
+  }
 }
