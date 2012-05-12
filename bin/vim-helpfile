@@ -1,10 +1,23 @@
 #!/usr/bin/env node
 
-var HelpFile = require('../');
+var fs = require('fs'),
+  join = require('path').join,
+  HelpFile = require('../');
 
-var opts = require('nopt')();
+var opts = require('nopt')({
+  help: Boolean, version: Boolean
+});
 
-process.openStdin()
+if(opts.help) return fs.createReadStream(join(__dirname, 'help.txt')).pipe(process.stdout);
+
+if(opts.version) return console.log(require('../package.json').version);
+
+var file = opts.argv.remain[0];
+
+// if file is not provided, assume input stream and open stdin.
+var input = file ? fs.createReadStream(file) : process.openStdin();
+
+input
   .pipe(new HelpFile(opts))
   .pipe(process.stdout);
 
