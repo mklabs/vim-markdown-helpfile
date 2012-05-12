@@ -1,0 +1,17 @@
+Usage:
+
+    vim-helpfile [options] [file]
+
+If no [file] is provided, data is collected from stdin
+
+    cat readme | vim-helpfile [options]
+
+Options:
+
+    -n, --name            Plugin name, if not set read from first very
+                          first heading
+    -d, --description     Plugin description, if not set read from very
+                          first text token (paragraph most likely)
+    -v, --version         Display package version
+    -h, --help            Show this help text
+
