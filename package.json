@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "marked": "~0.2.4-1",
-    "hogan": "~1.0.5-dev",
+    "hogan.js": "~1.0.5-dev",
     "nopt": "~1.0.10"
   },
   "devDependencies": {},
